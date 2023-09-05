@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+</head>
+<body>
+    <div class="content"> 
+    
+
+    <link rel="stylesheet" href="style2.css">
+    <h1>Temperature Converter</h1>
+
+    <label for="temperature">Enter Temperature:</label>
+    <input type="number" id="temperature" placeholder="Enter temperature">
+    <div>
+    <label for="unit">Select Unit:</label>
+    <select id="unit">
+        <option value="celsius">Celsius</option>
+        <option value="fahrenheit">Fahrenheit</option>
+    </select>
+    </div>
+    <div class="btn">
+    <button onclick="convertTemperature()">Convert</button>
+
+    <p id="result"></p>
+    </div>
+    </div>
+ 
+
+    <script>
+        function convertTemperature() {
+            const temperatureInput = parseFloat(document.getElementById('temperature').value);
+            const unit = document.getElementById('unit').value;
+            let result;
+            
+            if (unit === 'celsius') {
+                // Convert Celsius to Fahrenheit
+                result = (temperatureInput * 9/5) + 32;
+            } else {
+                // Convert Fahrenheit to Celsius
+                result = (temperatureInput - 32) * 5/9;
+            }
+            
+            document.getElementById('result').textContent = `Result: ${result.toFixed(2)} ${unit === 'celsius' ? 'Fahrenheit' : 'Celsius'}`;
+        }
+    </script>
+</body>
+</html>
